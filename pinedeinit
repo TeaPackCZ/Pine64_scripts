@@ -1,0 +1,29 @@
+#!/bin/sh
+#/etc/init.d/pinedeinit
+
+### BEGIN INIT INFO
+#Provides:		pinedeinit
+#Required-Start:
+#Required-Stop:
+#Default-Start:		2 3 4 5
+#Default-Stop:		0 1 6
+#Short-Description:	Start daemon at boot time
+#Description:
+### END INIT INFO
+
+case "$1" in
+	start)
+	  echo "Starting battery keeper" | wall
+	  ./home/teapack/battery_keeper.sh
+	  ;;
+	stop)
+	  echo "System is going down, closing all connections" | wall
+	  killall battery_keeper
+	  killall sshd
+	  ;;
+	*)
+	  exit 1
+	  ;;
+esac
+
+exit 0
