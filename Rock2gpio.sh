@@ -1,5 +1,15 @@
 #!/bin/bash
 
+if [ $# -eq 0 ]
+then
+	echo "Usage:"
+	echo "$0 GPIO3_A7"
+	echo ""
+	echo "GPIO3_A7 is standard pin name found in:"
+	echo "http://files.pine64.org/doc/rock64/ROCK64_Pi-2%20_and_Pi_P5+_Bus.pdf"
+	exit 1
+fi
+
 mREST=${1##GPIO}
 
 REST_ARR=(${mREST//_/ })

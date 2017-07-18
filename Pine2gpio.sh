@@ -1,5 +1,15 @@
 #!/bin/bash
 
+if [ $# -eq 0 ]
+then
+	echo "Usage:"
+	echo "$0 PL7"
+	echo ""
+	echo "PL7 is standard pin name and can be found at:"
+	echo "http://files.pine64.org/doc/Pine%20A64%20Schematic/Pine%20A64%20Pin%20Assignment%20160119.pdf"
+	exit 0
+fi
+
 mREST=${1##P}
 
 PAD_NAME=(${mREST//[0-9]/ })
